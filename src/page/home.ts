@@ -4,31 +4,22 @@
  */
 
 import gsap from 'gsap'; 
- 
+import { IRouteHandler } from "../engine/routeDispatcher";
 
-export class HomePage {
 
-//  modelDropdown: WebflowDropdown; 
+export class HomePage implements IRouteHandler {
 
   constructor() {
   }
   
-  init() {
+  setup() {
+        
+  }
+
+  exec() {
 
     console.log("Home."); 
 
-
-
-    // const elements: NodeListOf<Element> = document.querySelectorAll(`.${item.className}`);
-    // console.log("Making elements visible", elements);
-    // gsap.to(elements, { display: 'block' });
-
-
   }
-
-  
-  
-
-
 
 }

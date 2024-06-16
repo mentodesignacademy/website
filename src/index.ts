@@ -10,9 +10,7 @@
  * 
  */
 
-import { HomePage } from "./page/home";
-import { RouteDispatcher } from "./routeDispatcher";
-import { Site } from "./site";
+import { routeDispatcher } from "./routes";
 import { VERSION } from "./version";
 
 // Global vars
@@ -37,34 +35,33 @@ declare global {
     }
 }
 
-const init = () => {
+// Perform setup, sync
+const setup = () => {
     
     console.log(`${SITE_NAME} package init v${VERSION}`);
+    
+    routeDispatcher().setupRoute(); 
 
-    // Perform Site-wide actions
-    (new Site()).init();
+}
 
-    // Perform Page-specific actions
-    var routeDispatcher = new RouteDispatcher();
-    routeDispatcher.routes = {
-        '/': () => {
+// Perform exec, async
+// After DOM content loaded 
+const exec = () => {
+    
+    routeDispatcher().execRoute(); 
 
-            (new HomePage()).init();
-
-        }
-    };
-    routeDispatcher.dispatchRoute(); 
 }
 
 /**
  * Initialize
  */
 
+// Perform setup, sync
+setup();
+
+// Perform exec, async
 if (document.readyState !== 'loading') {
-    init();
+    exec();
 } else {
-    document.addEventListener("DOMContentLoaded", init);
+    document.addEventListener("DOMContentLoaded", exec);
 }
-
-
-
