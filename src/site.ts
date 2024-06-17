@@ -27,7 +27,7 @@ export class Site implements IRouteHandler {
 
     const fullUrl = new URL(currentScript.src);
     const pathWithoutFile = fullUrl.origin + fullUrl.pathname.substring(0, fullUrl.pathname.lastIndexOf('/') + 1);
-    console.log('Current script URL without file name:', pathWithoutFile);
+//    console.log('Current script URL without file name:', pathWithoutFile);
 
 console.log("installing site CSS")
 

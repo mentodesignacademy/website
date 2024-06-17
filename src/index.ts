@@ -38,7 +38,7 @@ declare global {
 // Perform setup, sync
 const setup = () => {
     
-    console.log(`${SITE_NAME} package init v${VERSION}`);
+    console.log(`${SITE_NAME} engine init v${VERSION}`);
     
     routeDispatcher().setupRoute(); 
 

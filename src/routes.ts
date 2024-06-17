@@ -12,18 +12,20 @@
 
 import { HomePage } from "./page/home";
 import { RouteDispatcher } from "./engine/routeDispatcher";
-import { VERSION } from "./version";
+import { EnrollPage } from "./page/enroll";
 
 export const routeDispatcher = (): RouteDispatcher => {
     
     var routeDispatcher = new RouteDispatcher();
     routeDispatcher.routes = {
 
-        // Site paes
+        // Site pages
         '/': HomePage,
 
+        // Test pages
+        '/test/enroll': EnrollPage, 
+
     };
-//    routeDispatcher.execRoute(); 
 
     return routeDispatcher;
 }

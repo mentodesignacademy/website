@@ -171,26 +171,5 @@
     };
     return routeDispatcher2;
   };
-
-  // src/version.ts
-  var VERSION = "0.1.0";
-
-  // src/index.ts
-  var SITE_NAME = "Site";
-  window[SITE_NAME] = window[SITE_NAME] || {};
-  var SiteData = window[SITE_NAME];
-  var setup = () => {
-    console.log(`${SITE_NAME} engine init v${VERSION}`);
-    routeDispatcher().setupRoute();
-  };
-  var exec = () => {
-    routeDispatcher().execRoute();
-  };
-  setup();
-  if (document.readyState !== "loading") {
-    exec();
-  } else {
-    document.addEventListener("DOMContentLoaded", exec);
-  }
 })();
-//# sourceMappingURL=index.js.map
+//# sourceMappingURL=routes.js.map
