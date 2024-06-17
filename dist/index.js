@@ -17,6 +17,18 @@
     link.href = url;
     document.head.appendChild(link);
   }
+  function loadEngineCSS(cssFileName) {
+    const currentScript = document.currentScript;
+    if (currentScript) {
+      const scriptURL = new URL(currentScript.src);
+      const origin = scriptURL.origin;
+      const path = scriptURL.pathname.substring(0, scriptURL.pathname.lastIndexOf("/"));
+      const cssURL = `${origin}${path}/css/${cssFileName}`;
+      loadCSS(cssURL);
+    } else {
+      console.error("Unable to determine the currently executing script.");
+    }
+  }
 
   // src/site.ts
   var Site = class {
@@ -82,7 +94,7 @@
     constructor() {
     }
     setup() {
-      loadCSS("http://127.0.0.1:3000/dist/css/enroll.css");
+      loadEngineCSS("enroll.css");
     }
     exec() {
       this.form = document.getElementById("enroll-form");
@@ -173,7 +185,7 @@
   };
 
   // src/version.ts
-  var VERSION = "0.1.0";
+  var VERSION = "1.2.0";
 
   // src/index.ts
   var SITE_NAME = "Site";

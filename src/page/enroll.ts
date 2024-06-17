@@ -5,7 +5,7 @@
 
 import gsap from 'gsap'; 
 import { IRouteHandler } from "../engine/routeDispatcher";
-import { loadCSS } from '../engine/core';
+import { loadCSS, loadEngineCSS } from '../engine/core';
 
 
 export class EnrollPage implements IRouteHandler {
@@ -23,8 +23,8 @@ export class EnrollPage implements IRouteHandler {
   
   setup() {
         
-    // BUG: 
-    loadCSS('http://127.0.0.1:3000/dist/css/enroll.css')
+//    loadCSS('http://127.0.0.1:3000/dist/css/enroll.css')
+    loadEngineCSS('enroll.css');
 
   }
 
